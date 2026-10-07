@@ -3,4 +3,39 @@ body {
 	   and use the OS’s UI font as the website font
 	 */
   font: 100%/1.5 system-ui;
+  max-width:100ch;
+  margin-inline:auto;
+  padding-inline: 1em;
+ 
+}
+
+:root {
+    --color-accent: oklch(72.717% 0.07959 219.358);
+}
+
+nav {
+    display: flex;
+    margin-bottom: 1em;
+    border-bottom-width: 1px ;
+    border-bottom-style: solid ;
+    border-bottom-color: oklch(80% 3% 200) ;
+    background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+
+nav a {
+    flex: 1;
+    text-decoration : none;
+    color : inherit;
+    text-align : center;
+    padding : 0.5em;
+}
+
+nav a.current {
+  border-bottom : 0.4em solid var(--color-accent);
+  padding-bottom: 0.1em;
+}
+
+
+nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent);
 }
