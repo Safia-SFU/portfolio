@@ -10,7 +10,7 @@ body {
 }
 
 :root {
-    --color-accent: oklch(72.717% 0.07959 219.358);
+    --color-accent: oklch(42.232% 0.07674 224.882);
 }
 
 nav {
@@ -67,3 +67,38 @@ form button { grid-column: 1 / -1;}
 h1 {font-size:400%;}
 
 h1, h2, h3, h4, h5, h6 {line-height: 1.1; text-wrap: balance;}
+
+/****************Step 5: Style you CV ***************/
+
+/* About Me: Align text evenly along both edges */
+.resume section:first-of-type p { text-align: justify; }
+
+/* Overall CV Layout: Set maximum width and center the content */
+.resume { max-width: 75ch; margin-inline:auto;}
+
+/* Main CV Title: Adjust size and bottom spacing */
+.resume h1 { font-size: 300%; margin-bottom: 0.5em; }
+
+/* Section Titles: Add accent color and underline */
+.resume h2 { color: var(--color-accent); 
+  border-bottom: 1px solid currentColor; 
+  padding-bottom: 0.25em; 
+  margin-top: 1.5em; }
+
+/* Job Titles and Degree Titles: Adjust spacing and text color */
+.resume h3 { margin-bottom: 0.1em; color: #227a8ed7; }
+
+/* Institution Names: Use italic text and a different color */
+.resume h4 {font-style: italic; color:  #71b0bed7;}
+
+/* Experience and Education entries: Add space between entries */
+.resume article  { margin-bottom: 1.5em; }
+
+/* Paragraphs within entries: reduce spacing around paragraphs */
+.resume article p { margin-top: 0.2em; margin-bottom: 0.2em; }
+
+/* Institution Names Within Entries: Adjust vertical spacing */
+.resume article h4 { margin-top: 0.2em; margin-bottom: 0.2em; }
+
+
+
