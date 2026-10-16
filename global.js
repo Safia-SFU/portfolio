@@ -60,6 +60,49 @@ for (let p of pages) {
 }
 
 
+// Step 4.2: Adding HTML for the Dark Mode Switch
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+	<label class="color-scheme">
+		Theme:
+		<select>
+			<option value = "light dark">Automatic</option>
+      <option value = "light">Light</option>
+      <option value = "dark">Dark</option>
+		</select>
+	</label>`,
+);
+
+//Step 4.4 & 4.5:: Making the Theme button work and Saving the User’s Preference
+let select = document.querySelector('select');
+select.addEventListener('input', function (event) {
+  document.documentElement.style.setProperty('color-scheme', event.target.value);
+  localStorage.colorScheme = event.target.value;
+});
+
+if ('colorScheme' in localStorage) {
+  document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
+  select.value = localStorage.colorScheme;
+}
+
+//Step 5: Better Contact Form
+let form = document.querySelector('form');
+
+form?.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  let data = new FormData(form);
+  let url = form.action + '?';
+  
+  for (let [name, value] of data) {
+  url += (url.endsWith('?') ? '' : '&') + name + 
+  '=' + encodeURIComponent(value);
+  }
+  location.href = url;
+});
+
+
 
 
 

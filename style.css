@@ -1,3 +1,8 @@
+
+
+html {color-scheme: light dark;}
+
+
 body {
   /* Set line height to 1.5 times the font size
 	   and use the OS’s UI font as the website font
@@ -6,20 +11,29 @@ body {
   max-width:100ch;
   margin-inline:auto;
   padding-inline: 1em;
+  
  
 }
 
 :root {
     --color-accent: oklch(42.232% 0.07674 224.882);
+    
 }
 
 nav {
+    --border-color: oklch(50% 10% 200 / 40%);
     display: flex;
     margin-bottom: 1em;
     border-bottom-width: 1px ;
     border-bottom-style: solid ;
-    border-bottom-color: oklch(80% 3% 200) ;
-    background-color: oklch(from var(--color-accent) 95% 5% h);
+    border-bottom-color: var(--border-color); 
+}
+
+label.color-scheme {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 80%;
 }
 
 nav a {
@@ -38,9 +52,10 @@ nav a.current {
 
 nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
-form input, form textarea, form button { font : inherit;}
+form input, form textarea, form button, select { font : inherit;}
 
 form  {display:grid;
   grid-template-columns: auto 1fr;
@@ -99,6 +114,8 @@ h1, h2, h3, h4, h5, h6 {line-height: 1.1; text-wrap: balance;}
 
 /* Institution Names Within Entries: Adjust vertical spacing */
 .resume article h4 { margin-top: 0.2em; margin-bottom: 0.2em; }
+
+
 
 
 
