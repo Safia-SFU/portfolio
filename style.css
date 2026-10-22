@@ -145,3 +145,9 @@ border: 1px solid #ccc;
 border-radius: 12px;
 margin-block: 1rem 2rem;
 }
+
+/* Homepage section headings (GitHub Stats and Latests Projects*/
+.section-title {
+color: var(--color-accent);
+font-size: 1.8rem;
+}
