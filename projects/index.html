@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safia: Projects</title>
     <link rel="stylesheet" href="../style.css">
-    <script type="module" src="../global.js"></script>
+    <!-- we call it in the bottom: 
+     <script type="module" src="../global.js"></script>
+     -->
 </head>
 <body>
     <!-- <nav>
@@ -15,9 +17,9 @@
     <a href="../resume/index.html">Resume</a>
     <a href="https://github.com/Safia-SFU" target="_blank">GitHub</a>
 </nav> -->
-    <h1> Projects</h1>
-    <div class="projects">
-        <article>
+    <h1 class="projects-title"> Projects</h1>
+    <div class="projects"></div>
+      <!--  <article>
             <h2>Lorem ipsum dolor sit.</h2>
             <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti animi cumque cum nulla quam ipsum, adipisci, ullam similique ad facere vel tempora voluptatibus deleniti, illo nam veniam autem odio molestias.</p>
@@ -76,8 +78,11 @@
             <h2>Beatae sit rem quidem.</h2>
             <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
             <p>Molestias dignissimos totam et placeat. Nemo eius dolore sequi! Necessitatibus amet mollitia similique distinctio dolorem minima voluptates nihil aperiam labore blanditiis neque debitis dicta explicabo, deserunt numquam ad autem corporis?</p>
-        </article>
-    </div>
+        </article> -->
+<!--loads global.js, which contains the exported fetchJSON() and renderProjects() functions. -->  
+<script src="../global.js" type="module"></script>
+<!-- oads projects.js, which imports and uses those functions. -->
+<script src="projects.js" type="module"></script>
     
 </body>
 </html>

@@ -6,6 +6,7 @@
     <title>Safia: Personal site and portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="global.js"></script>
+    <script src="index.js" type="module" defer></script>
 
 </head>
 <body>
@@ -19,6 +20,31 @@
     
     <h1>Safia</h1>
     <p>M.S. in Data Science Student at UC San Diego | PhD in Economics.</p>
+
+    <h2>GitHub Stats</h2>
+    <div id="profile-stats">
+  <!-- GitHub statistics will appear here --> </div>
+
+    <h2>Latest Projects</h2>
+    <div class="projects">
+  <!-- Dynamically added content will appear here --> </div>
+
+
     <img src="images/Data-Science.jpg" alt="Homepage photo"> 
 </body>
 </html>
+
+
+<!-- 
+//####Think About It
+#Why do we need the type="module" attribute?
+It enables import and export.  index.js imports fetchJSON and renderProjects from global.js. 
+It defers execution automatically. Module scripts are deferred by default, meaning the browser executes them after parsing the HTML. 
+So defer is optional when type="module" is present.
+
+//####Think About It
+#Why do we include projects as classes?
+The class connects the HTML to the JavaScript selector
+#What happens if this container is missing or the classes don’t match?
+It returns null. Then renderProjects() will fail when it tries to use that missing element.
+-->      

@@ -118,4 +118,30 @@ h1, h2, h3, h4, h5, h6 {line-height: 1.1; text-wrap: balance;}
 
 
 
+/* GitHub Profile Stats */
+#profile-stats dl {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+margin: 0;
+gap: 1rem;
+}
 
+#profile-stats dt {
+grid-row: 1;
+font-size: 0.9rem;
+color: gray;
+}
+
+#profile-stats dd {
+grid-row: 2;
+margin: 0;
+font-size: 1.5rem;
+font-weight: bold;
+}
+
+#profile-stats {
+padding: 1.5rem;
+border: 1px solid #ccc;
+border-radius: 12px;
+margin-block: 1rem 2rem;
+}
