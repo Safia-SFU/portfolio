@@ -151,3 +151,86 @@ margin-block: 1rem 2rem;
 color: var(--color-accent);
 font-size: 1.8rem;
 }
+
+/*Change the project year style */
+.project-year {
+  font-family: Baskerville;
+  font-variant-numeric: oldstyle-nums;
+}
+
+/*Limit the pie's size*/
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+  overflow: visible;
+}
+
+/* Step 2.2 (Lab 5): Style the legend */
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7em, 1fr));
+  gap: 1em;
+  padding: 1em;
+  margin-block: 1em 2em;
+  border: 1px solid gray;
+  list-style: none;
+  flex: 1;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.swatch {
+  display: inline-block;
+  width: 1em;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  border-radius: 0.2em;
+}
+
+/*Laying Out Our Pie Chart and Legend Side by Side*/
+ 
+.container {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+/* Style the project search bar */
+.searchBar {
+    width: 100%;
+    max-width: 60em;
+    padding: 0.6em 1em;
+    font: inherit;
+    border-radius: 0.5em;
+}
+
+/* Step 5.1: Highlight the hovered pie slice */
+#projects-pie-plot:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+/* Smooth transition when hovering over pie slices */
+#projects-pie-plot path {
+    transition: 300ms;
+}
+
+/* Lab5 - Step 5.2: Highlight selected wedges and legend items */
+.selected {
+  --color: oklch(14.276% 0.00422 227.633) !important;
+}
+
+.selected:is(path) {
+    fill: var(--color);
+}
+/* Indicate that pie slices are clickable */
+#projects-pie-plot path {
+    cursor: pointer;
+}
+
