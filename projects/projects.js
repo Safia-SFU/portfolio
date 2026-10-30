@@ -21,6 +21,27 @@ renderProjects(projects, projectsContainer, 'h2');
 let query = '';
 // -1 means no index (no pie slice is selected)
 let selectedIndex = -1;
+let selectedYear = null;
+
+//update the filtering so both search query and selected year work together:
+function updateProjects() {
+
+  //// First, filter projects based on the search query
+  let searchFilteredProjects = projects.filter((project) => {
+    let values = Object.values(project).join('\n').toLowerCase();
+    return values.includes(query.toLowerCase());
+  });
+  
+  // Then, apply the selected year filter to the search results
+  let filteredProjects = searchFilteredProjects.filter((project) => {
+    let matchesYear = selectedYear === null || (project.year) === (selectedYear);
+
+    return matchesYear;
+  });
+
+  renderProjects(filteredProjects, projectsContainer, 'h2');
+  renderPieChart(searchFilteredProjects);
+}
 
 // Function to render the pie chart and legend
 function renderPieChart(projectsGiven) {
@@ -34,6 +55,8 @@ function renderPieChart(projectsGiven) {
     let newData = newRolledData.map(([year, count]) => {
       return { value: count, label: year};
     });
+    //recalculates the selected slice's index whenever the chart is redrawn 9to keep the highlight on selected pie)
+    selectedIndex = newData.findIndex((d) => d.label === selectedYear);
 
     // Create the arc generator
     let newArcGenerator = d3.arc().innerRadius(0).outerRadius(50);
@@ -59,9 +82,14 @@ function renderPieChart(projectsGiven) {
         .append('path')
         .attr('d', arc)
         .attr('fill', colors(i))
+        .attr('class', i === selectedIndex ? 'selected' : null)
         .on('click', () => {
           // Select or deselect the clicked wedge
           selectedIndex = selectedIndex === i ? -1 : i;
+
+          // Store the selected year
+          selectedYear = selectedIndex === -1 ? null : newData[selectedIndex].label;
+
 
           // Highlight the selected wedge
           newSVG
@@ -79,20 +107,11 @@ function renderPieChart(projectsGiven) {
                 : 'legend-item'
             ));
           //filter projects based on the selected year:
-          if (selectedIndex === -1) {
-            renderProjects(projects, projectsContainer, 'h2');
-          } else {
-            // TODO: filter projects and project them onto webpage
-            // Hint: `.label` might be useful
-            let selectedYear = newData[selectedIndex].label;
-            let filteredProjects = projects.filter(
-              (project) => project.year == selectedYear
-            );
-
-            renderProjects(filteredProjects, projectsContainer, 'h2');
-          }
-
-
+          //selectedYear =
+            //selectedIndex === -1 ? null : newData[selectedIndex].label;
+        
+          updateProjects();
+          
         });
     });
 
@@ -129,7 +148,8 @@ renderPieChart(projects);
 //Select the search field:
 let searchInput = document.querySelector('.searchBar');
 
-// Update the projects and chart when the search changes
+
+/*/ Update the projects and chart when the search changes
 searchInput.addEventListener('change', (event) => {
   // update query value
   query = event.target.value;
@@ -137,13 +157,15 @@ searchInput.addEventListener('change', (event) => {
   let filteredProjects = projects.filter((project) => {
     let values = Object.values(project).join('\n').toLowerCase();
     return values.includes(query.toLowerCase()); 
-  });
-
-  // TODO: render updated projects!
-  renderProjects(filteredProjects, projectsContainer, 'h2');
-  // Render the chart using only the filtered projects
-  renderPieChart(filteredProjects);
+  }); */
+  //replace the code above to incluse both filters:
+searchInput.addEventListener('change', (event) => {
+  query = event.target.value;
+  updateProjects();
 });
+
+
+
 
 
 //## What happens if the projects.json file is missing or incorrectly formatted?
