@@ -234,3 +234,36 @@ font-size: 1.8rem;
     cursor: pointer;
 }
 
+
+/* Lab6 - Step 1.2: Style the stats section from loc.csv data */
+
+#stats dl {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin: 0;
+  gap: 1rem;
+  color: #227a8ed7
+}
+
+#stats dt {
+  text-align: center;
+  grid-row: 1;
+  font-size: 0.9rem;
+  color: gray;
+}
+
+#stats dd {
+  grid-row: 2;
+  text-align: center;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#stats {
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  margin-block: 1rem 2rem;
+}
+
