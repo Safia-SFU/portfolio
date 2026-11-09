@@ -326,3 +326,55 @@ circle {
 circle:hover {
     transform: scale(1.5);
 }
+
+/* brush styling*/
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+/*make selected dots stand out:*/
+circle.selected {
+  fill: #ff6b6b;
+}
+
+
+/* Language breakdown grid */
+
+#language-breakdown {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  gap: 0.1rem;
+  color: #227a8ed7;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  margin-block: 1rem 2rem;
+}
+
+#language-breakdown  dt {
+  text-align: center;
+  grid-row: 1;
+  font-size: 2rem;
+  color: gray;
+}
+
+#language-breakdown  dd {
+  grid-row: 2;
+  text-align: center;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+
