@@ -266,4 +266,12 @@ font-size: 1.8rem;
   border-radius: 12px;
   margin-block: 1rem 2rem;
 }
+/* Lab6 - Step 2.3: scatterplot gridlines*/
+.gridlines line {
+    stroke: #ccc;
+    stroke-opacity: 0.6;
+}
 
+.gridlines path {
+    stroke: none;
+}
