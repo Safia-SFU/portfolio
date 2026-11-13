@@ -17,26 +17,29 @@
         "title": "Education Spending and Gender Gaps in Educational Attainment",
         "year": 2026,
         "image": "images/project3.png",
-        "description": "A collaborative interactive data visualization developed with Heta Joshi and Jade Romero. Using World Bank data from 14 countries across the United States, Europe, and Latin America, we explore how government spending on secondary education relates to gender gaps in upper-secondary educational attainment from 2004 to 2018. An animated bubble chart allows users to compare countries, examine trends over time, and explore different educational attainment measures.",
+        "description": "A collaborative interactive data visualization developed with Heta Joshi and Jade Romero. Using an animated bubble chart and World Bank data from 14 countries across the United States, Europe, and Latin America, we explore how government spending on secondary education relates to gender gaps in upper-secondary educational attainment from 2004 to 2018.",
         "url": "https://safia-sfu.github.io/Collaborative-Interactive-Data-Visualization/"
     },
     {
-        "title": "Cumque officiis fugiat cupiditate.",
-        "year": 2026,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Natus deserunt necessitatibus deleniti a laborum corrupti similique perferendis iusto, veniam sunt quae dolorum beatae atque impedit quis rem sed blanditiis dignissimos voluptatibus adipisci minus! Corrupti aperiam sint modi autem."
+        "title": "World Happiness Data Analysis",
+        "year": 2025,
+        "image": "images/world-happiness.png",
+        "description": "Exploratory data analysis of global happiness indicators using Python, Pandas, Matplotlib, and Jupyter Notebook. Cleaned and analyzed data across countries using descriptive statistics and visualizations to explore economic and social factors associated with happiness.",
+        "url": "https://github.com/SafiaSFU/World-Happiness-Data-Analysis"
     },
     {
-        "title": "Molestiae explicabo neque incidunt.",
+        "title": "Poverty Level Calculator",
         "year": 2025,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Est impedit in enim quasi totam amet accusamus a sunt! Veritatis molestias id voluptate enim iusto quae cumque nulla illo itaque, quaerat praesentium impedit amet, animi adipisci ab natus fuga!"
+        "image": "images/poverty-calculator.png",
+        "description": "A Python desktop application built with Tkinter and object-oriented programming to estimate U.S. household poverty status based on income, household size, and location using federal poverty guidelines.",
+        "url": "https://github.com/SafiaSFU/Poverty_Level_Calculator"
     },
     {
-        "title": "Illo sunt error commodi?",
+        "title": "Weather Risk Calculator",
         "year": 2025,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Deserunt animi soluta odit dolores ea ad earum fugiat sunt dolorum corrupti, aliquid voluptate quos, officia beatae temporibus esse minima. Sit illum consectetur quae blanditiis nobis! Cupiditate incidunt eius ea."
+        "image": "images/weather-risk.png",
+        "description": "A Python command-line application that calculates heat index and wind chill using NOAA formulas to assess weather-related risks through interactive user inputs.",
+        "url": "https://github.com/SafiaSFU/Weather_Risk_Calculator"
     },
     {
         "title": "Perspiciatis voluptates accusamus excepturi.",

@@ -69,6 +69,15 @@ form label {
 
 form button { grid-column: 1 / -1;}
 
+.homepage-photo {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 2em auto;
+    border-radius: 12px;
+}
+
 .projects {display:grid;
   grid-template-columns:repeat(3, minmax(15em, 1fr));
   gap:1em;}
@@ -386,14 +395,7 @@ circle.selected {
 }
 
 
-.homepage-photo {
-    display: block;
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-    margin: 2em auto;
-    border-radius: 12px;
-}
+
 
 
 /*Preserve the three-column layout on woder screens while avoiding very narrow cards on phones */ 
