@@ -86,7 +86,7 @@ form button { grid-column: 1 / -1;}
 .projects img {
     width: 100%;
     height: 180px;
-    object-fit: contain; /*cover cuts the edges */
+    object-fit: cover; /*cover cuts the edges, contain no */
     display: block;
 }
 
