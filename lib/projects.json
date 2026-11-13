@@ -30,7 +30,7 @@
     {
         "title": "Poverty Level Calculator",
         "year": 2025,
-        "image": "images/poverty-calculator.png",
+        "image": "images/poverty-level-calculator.png",
         "description": "A Python desktop application built with Tkinter and object-oriented programming to estimate U.S. household poverty status based on income, household size, and location using federal poverty guidelines.",
         "url": "https://github.com/SafiaSFU/Poverty_Level_Calculator"
     },
