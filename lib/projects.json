@@ -1,21 +1,24 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
+        "title": "Bikewatching",
         "year": 2026,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti animi cumque cum nulla quam ipsum, adipisci, ullam similique ad facere vel tempora voluptatibus deleniti, illo nam veniam autem odio molestias."
+        "image": "images/bikewatching.png",
+        "description": "An interactive visualization of Bluebikes traffic in Bostom and Cambridge, showing station activity, arrivals, departures, and time-based filtering.",
+        "url": "https://safia-sfu.github.io/bikewatching/"
     },
     {
-        "title": "Voluptatibus distinctio eius natus.",
+        "title": "Persuasive or Deceptive Visualization",
         "year": 2026,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Eius, dolor quidem? Possimus laboriosam in accusamus quibusdam. Voluptas, enim modi. Inventore molestiae aperiam dolores reprehenderit cupiditate repellendus, recusandae corporis quod id iure placeat doloribus minus totam, non, error officia."
+        "image": "images/project2.png",
+        "description": "An analysis of abortion-clinic availability across the United States, featuring two visualizations and a reflection on persuasive and deceptive data visualization.",
+        "url": "https://safia-sfu.github.io/portfolio/project2/"
     },
     {
-        "title": "Quidem perspiciatis blanditiis animi!",
+        "title": "Education Spending and Gender Gaps in Educational Attainment",
         "year": 2026,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Officiis, voluptatum ducimus molestiae dolores iusto minus iure voluptates? Reiciendis sunt nam inventore magnam cupiditate quas illum, nobis facere enim nulla incidunt et eum molestias consequatur atque culpa minus explicabo."
+        "image": "images/project3.png",
+        "description": "A collaborative interactive data visualization developed with Heta Joshi and Jade Romero. Using World Bank data from 14 countries across the United States, Europe, and Latin America, we explore how government spending on secondary education relates to gender gaps in upper-secondary educational attainment from 2004 to 2018. An animated bubble chart allows users to compare countries, examine trends over time, and explore different educational attainment measures.",
+        "url": "https://safia-sfu.github.io/Collaborative-Interactive-Data-Visualization/"
     },
     {
         "title": "Cumque officiis fugiat cupiditate.",

@@ -133,12 +133,15 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
   for (const project of projects) {
     const article = document.createElement('article');
     //Defining the Content Dynamically
+    //import.meta.url refers to the location of global.js, which is in the root of the portfolio and be able to display the images in Projects page
     article.innerHTML = `
-    <${headingLevel}>${project.title}</${headingLevel}>
-    <img src="${project.image}" alt="${project.title}">
-    <div>
-    <p>${project.description}</p>
-    <p class="project-year">${project.year}</p></div>`;
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${new URL(project.image, import.meta.url).href}" alt="${project.title}"> 
+      <div>
+        <p>${project.description}</p>
+        <p class="project-year">${project.year}</p>
+        ${project.url ? `<p><a href="${project.url}" target="_blank" rel="noopener noreferrer">View Project</a></p>` : ''}
+        </div>`;
     //Appending the Article
     containerElement.appendChild(article);
 
