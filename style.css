@@ -433,3 +433,51 @@ circle.selected {
   white-space: nowrap;
 }
 
+/* Step 2.1 - lab 8 - Files*/
+/* Arrange filenames and their visualized lines into two columns. */
+#files {
+  display: grid; /* Use a grid layout for the file list. */
+  grid-template-columns: 1fr 4fr; /* Narrow filename column, wider dots column. */
+
+  /* Each file uses the same column widths as the parent grid. */
+  > div {
+    grid-column: 1 / -1; /* Span both columns. */
+    display: grid; /* Create a grid for each file. */
+    grid-template-columns: subgrid; /* Inherit the parent's column widths. */
+  }
+
+  /* Position the filename in the first column. */
+  dt {
+    grid-column: 1;
+  }
+
+  /* Style the line count below each filename. */
+  small {
+    display: block; /* Put the line count on its own line. */
+    font-size: 0.75em; /* Make it smaller than the filename. */
+    opacity: 0.6; /* Make it less visually prominent. */
+  }
+
+  /* Arrange the circles beside each filename. */
+  dd {
+    grid-column: 2; /* Place the circles in the second column. */
+    display: flex; /* Use flexbox to arrange circles horizontally. */
+    flex-wrap: wrap; /* Move circles to the next row when needed. */
+    align-items: start; /* Align circles toward the top. */
+    align-content: start; /* Keep wrapped rows close together. */
+    gap: 0.15em; /* Add a small space between circles. */
+    padding-top: 0.6em; /* Add a little space above the circles. */
+    margin-left: 0; /* Remove the browser's default dd indentation. */
+  }
+}
+
+/* Style each line of code as a small blue circle. */
+.loc {
+  display: flex; /* Use flex layout, as in the lab. */
+  width: 0.5em; /* Set the circle's width. */
+  aspect-ratio: 1; /* Make its height equal to its width. */
+  /*background: steelblue; /* Give the circle a blue color.  */
+  background: var(--color); 
+  border-radius: 50%; /* Turn the square into a circle. */
+}
+

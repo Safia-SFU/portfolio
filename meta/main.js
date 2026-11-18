@@ -384,6 +384,74 @@ function renderLanguageBreakdown(selection) {
 let data = await loadData();
 commits = processCommits(data);
 
+//Lab 8 - step 2.1
+// Adding Unit Visualization for Files
+function updateFileDisplay(filteredCommits) {
+  // Create a D3 ordinal color scale.
+  let colors = d3.scaleOrdinal(d3.schemeTableau10);
+  // Collect all the lines associated with the currently visible commits.
+  // flatMap() combines the lines arrays from each commit into one array.
+  let lines = filteredCommits.flatMap((d) => d.lines);
+  ////////////////////////////////////////////////////////
+  // Show each filename and the technologies recorded for its lines.
+  console.log(
+    'Technologies by file:',
+    d3.rollups(
+      lines,
+      (fileLines) => [...new Set(fileLines.map((d) => d.type))],
+      (d) => d.file
+    )
+  );
+  ////////////////////////////////////////////////////////
+  let files = d3
+    .groups(lines, (d) => d.file)
+    .map(([name, lines]) => {
+      return { name, lines };
+    })
+    // Sort files from the most lines to the fewest lines.
+    .sort((a, b) => b.lines.length - a.lines.length);
+  
+  //Find the <dl is="files"> element in meta/index.html
+  let filesContainer = d3
+    .select('#files')
+    .selectAll('div') //select existing divs representing files
+    .data(files, (d) => d.name) //match each div using its filename
+    .join(
+    // This code only runs when the div is initially rendered
+    //create a new dic only when a file doesn't already have one
+      (enter) =>
+        enter.append('div').call((div) => {
+        //create a <dt> containing a <code> for teh filename
+        div.append('dt').append('code');
+        ////create a <dd> for rhe number of files
+        div.append('dd');
+      }),
+  );
+
+  // This code updates the div info
+  // Update the filename displayed inside each <code> element.
+  // Display the filename and number of lines in the <dt> element.
+  filesContainer.select('dt').html((d) => `
+    <code>${d.name}</code>
+    <small>${d.lines.length} lines</small>
+  `);
+  // Update the number of lines displayed for each file.
+  // Find the <dd> element belonging to each file.
+  filesContainer
+    .select('dd')
+    // Select the existing line elements inside each <dd>.
+    .selectAll('div')
+    // Connect each line of code to one div element.
+    .data((d) => d.lines)
+    // Create new divs or remove extra ones as the slider changes.
+    .join('div')
+    // Give every line element the CSS class "loc".
+    .attr('class', 'loc')
+    //Assign a technology-based color to each line using a CSS variable.
+    .attr('style', (d) => `--color: ${colors(d.type)}`);
+}
+
+
 //Lab 8:
 //Step1.1:
 // Max time to show as % of total time
@@ -422,6 +490,9 @@ function onTimeSliderChange() {
 
   //update the existing scatterplot with the filtered commits
   updateScatterPlot(data, filteredCommits);
+
+  //update the file list using the same filtered commits
+  updateFileDisplay(filteredCommits);
  
 }
 
