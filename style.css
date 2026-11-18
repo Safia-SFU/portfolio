@@ -94,7 +94,10 @@ form button { grid-column: 1 / -1;}
   grid-template-rows: subgrid;
   grid-row: span 3;}
 
-.projects h2 {margin:0;}
+.projects h2 {
+  margin:0;
+  text-align: center; 
+}
 
 h1 {font-size:400%;}
 
@@ -494,6 +497,7 @@ circle.selected {
 /* Style the left column containing the story text. */
 #scatter-story {
   position: relative; /* Allow positioning within the story column. */
+  font-size: 0.9rem;
 }
 
 /* Keep the scatterplot visible while scrolling through the story. */
