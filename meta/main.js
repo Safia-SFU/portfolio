@@ -1,4 +1,8 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
+
+import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
+
+
 // Load the CSV file and convert its values to the correct data types
 async function loadData() {
   const data = await d3.csv('loc.csv', (row) => ({  //read the CSV file
@@ -48,7 +52,9 @@ function processCommits(data) {
         });
 
         return ret;
-    });
+    })
+    // Sort commits chronologically, from oldest to newest.
+    .sort((a, b) => a.datetime - b.datetime);
 }
 
 // Displaying the Stats
@@ -392,17 +398,6 @@ function updateFileDisplay(filteredCommits) {
   // Collect all the lines associated with the currently visible commits.
   // flatMap() combines the lines arrays from each commit into one array.
   let lines = filteredCommits.flatMap((d) => d.lines);
-  ////////////////////////////////////////////////////////
-  // Show each filename and the technologies recorded for its lines.
-  console.log(
-    'Technologies by file:',
-    d3.rollups(
-      lines,
-      (fileLines) => [...new Set(fileLines.map((d) => d.type))],
-      (d) => d.file
-    )
-  );
-  ////////////////////////////////////////////////////////
   let files = d3
     .groups(lines, (d) => d.file)
     .map(([name, lines]) => {
@@ -512,5 +507,75 @@ document
 
 // Initialize the date when the page loads
 onTimeSliderChange();
+
+
+/* Lab 8 - STEP 3.2: Generate story text for each commit. */
+
+// Find the story container in meta/index.html.
+d3.select('#scatter-story')
+  // Select all story steps that already exist.
+  .selectAll('.step')
+  // Connect the complete commits array to the story steps.
+  // Each commit will have its own paragraph-like section.
+  .data(commits)
+  // Create a new div for each commit if it doesn't exist yet.
+  .join('div')
+  // Give every div the "step" class for Scrollama in later steps.
+  .attr('class', 'step')
+  // Generate HTML text using information from each commit.
+  .html(
+    (d, i) => `On ${d.datetime.toLocaleString('en', {
+      dateStyle: 'full', // Show the full date, e.g. Monday, October 5, 2026.
+      timeStyle: 'short', // Show the time, e.g. 2:30 PM.
+    })},
+
+    I made <a href="${d.url}" target="_blank">${
+      i > 0
+        ? 'another glorious commit'
+        : 'my first commit, and it was glorious'
+    }</a>.
+
+    I edited ${d.totalLines} lines across ${
+      d3.rollups(
+        d.lines, // Get all the lines changed in this commit.
+        (D) => D.length, // Count lines in each file.
+        (d) => d.file, // Group lines by filename.
+      ).length // Count how many different files were edited.
+    } files.
+
+    Then I looked over all I had made, and I saw that it was very good.
+
+  `);
+
+
+// LAB 8 — STEP 3.3: Update the visualization as the reader scrolls.
+// This function runs whenever a commit description enters the active scroll area
+//Add Scrollama at the bottom
+function onStepEnter(response) {
+  // Get the commit object attached by D3 to the active story step.
+  const commit = response.element.__data__;
+  // Display the active commit's date in the browser console for testing.
+  console.log(commit.datetime);
+  // Use the active commit's date as the latest visible commit date.
+  commitMaxTime = commit.datetime;
+  // Keep only commits made on or before the active commit's date.
+  filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+  // Update the existing scatterplot without creating another SVG.
+  updateScatterPlot(data, filteredCommits);
+  // Update the file visualization using the same filtered commits.
+  updateFileDisplay(filteredCommits);
+  // Create a Scrollama instance to track the story steps.
+}
+const scroller = scrollama();
+
+// Configure Scrollama to watch the commit descriptions.
+scroller
+  .setup({
+    container: '#scrolly-1', // The parent container for the story and chart.
+    step: '#scrolly-1 .step', // Each commit description is one scroll step.
+  })
+  .onStepEnter(onStepEnter); // Run our function when a step becomes active.
+  
+
 
 

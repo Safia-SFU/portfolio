@@ -24,29 +24,35 @@
         </label>
         <time id="commit-time"></time>
     </div>
-    
-    <!-- Display filenames and line counts for the currently filtered commits. -->
-    <dl id="files">
-    <!-- JavaScript will create a div for each file here. -->
-    </dl>
 
     <!-- -->
-    
-    <h2>Commits by time of day</h2>
-    <div id="chart"></div>
-    <p id="selection-count">No commits selected</p>
-    <dl id="language-breakdown" class="stats"></dl>
+    <!-- Main container for the first scrollytelling section. -->
+    <div id="scrolly-1">
+        <!-- Left column: narrative text that the reader will scroll through. -->
+        <div id="scatter-story"></div>
+
+        <!-- Right column: existing scatterplot and brush-selection information. -->
+        <div id="scatter-plot">
+            <h2>Commits by time of day</h2>
+            <div id="chart"></div>
+            <p id="selection-count">No commits selected</p>
+            <dl id="language-breakdown" class="stats"></dl>
+        </div>
+    </div>
 
     <dl id="commit-tooltip" class="info tooltip" hidden>
         <dt>Commit</dt>
         <dd>
-            <a href="" id="commit-link" target="_blank"></a>
-        </dd>
-
+            <a href="" id="commit-link" target="_blank"></a></dd>
 
         <dt>Date</dt>
         <dd id="commit-date"></dd>
         <!-- Add: Time, author, lines edited -->
+    </dl>
+
+        <!-- Display filenames and line counts for the currently filtered commits. -->
+    <dl id="files">
+    <!-- JavaScript will create a div for each file here. -->
     </dl>
 
 
