@@ -551,6 +551,7 @@ d3.select('#scatter-story')
 // LAB 8 — STEP 3.3: Update the visualization as the reader scrolls.
 // This function runs whenever a commit description enters the active scroll area
 //Add Scrollama at the bottom
+// Run whenever a commit story step becomes active.
 function onStepEnter(response) {
   // Get the commit object attached by D3 to the active story step.
   const commit = response.element.__data__;
@@ -564,8 +565,8 @@ function onStepEnter(response) {
   updateScatterPlot(data, filteredCommits);
   // Update the file visualization using the same filtered commits.
   updateFileDisplay(filteredCommits);
-  // Create a Scrollama instance to track the story steps.
 }
+
 const scroller = scrollama();
 
 // Configure Scrollama to watch the commit descriptions.

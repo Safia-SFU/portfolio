@@ -386,7 +386,7 @@ circle.selected {
 #language-breakdown  dt {
   text-align: center;
   grid-row: 1;
-  font-size: 2rem;
+  font-size: 1.1rem;
   color: gray;
 }
 
@@ -394,12 +394,9 @@ circle.selected {
   grid-row: 2;
   text-align: center;
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
-
-
-
 
 
 /*Preserve the three-column layout on woder screens while avoiding very narrow cards on phones */ 
@@ -505,7 +502,7 @@ circle.selected {
   top: 0; /* Stick to the top of the viewport. */
   left: 0; /* Keep its left position unchanged. */
   bottom: auto; /* Don't anchor it to the bottom. */
-  height: 50vh; /* Set its height to half the viewport height. */
+  height: fit-content; /* Include chart, selection count, and language breakdown. */
 }
 
 /* Give each commit description room as the reader scrolls. */
